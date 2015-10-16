@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='audit',
             name='created_at',
-            field=models.DateTimeField(default=b'2015-10-15 15:19:12.508', auto_now=True),
+            field=models.DateTimeField(default=b'2015-10-15 15:19:47.813', auto_now=True),
             preserve_default=True,
         ),
     ]
