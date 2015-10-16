@@ -8,9 +8,9 @@ You can:
 
 - Manage users and tenants on your Keystone service.
 
-- manage containers and objects on Swift. (A customized version of [django-swiftbrowser](https://github.com/cschwede/django-swiftbrowser))
+- Manage containers and objects on Swift (A customized version of [django-swiftbrowser](https://github.com/cschwede/django-swiftbrowser)).
 
-- take your service, add it`s endpoints to Keystone and create a Django App inside Vault to manage it.
+- Take your service, add its endpoints to Keystone and create a Django App inside Vault to manage it.
 
 ### Basic setup (production)
 =======
