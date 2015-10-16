@@ -1,10 +1,16 @@
 # Vault
-Admin webapp for Openstack's Keystone and Swift..
+Admin webapp for Openstack's Keystone services. Bundled with Swift UI.
 
 ### Short description
-Manage users and tenants on your Keystone service.
+Like Openstack Horizon, Vault is a Front-End for services handled by Keystone, but with minimal configurantion and dependencies.
 
-Manage containers and objects on Swift. (A customized version of [django-swiftbrowser](https://github.com/cschwede/django-swiftbrowser))
+You can:
+
+- Manage users and tenants on your Keystone service.
+
+- manage containers and objects on Swift. (A customized version of [django-swiftbrowser](https://github.com/cschwede/django-swiftbrowser))
+
+- take your service, add it`s endpoints to Keystone and create a Django App inside Vault to manage it.
 
 ### Basic setup (production)
 =======
@@ -15,13 +21,21 @@ Manage containers and objects on Swift. (A customized version of [django-swiftbr
 
 2) set environment variables
 
-    $ export VAULT_ENVIRON=PROD
+    $ export VAULT_DEBUG=False
+    $ export VAULT_PAGINATION_SIZE=10  # Default number of items for pages with lists
+    $ export VAULT_STATIC_URL='http://your-static-url'
+ 
     $ export VAULT_MYSQL_USER=(vault mysql user)
     $ export VAULT_MYSQL_PASSWORD=(vault mysql password)
-    $ export VAULT_MYSQL_PORT=3306
-    $ export VAULT_MYSQL_HOST=(vault mysql host)
-    $ export VAULT_STATIC_URL='http://your-static-url'
+    $ export VAULT_MYSQL_PORT=3306  # Or your custom mysql port
+    $ export VAULT_MYSQL_HOST=(vault mysql host) 
+   
     $ export VAULT_KEYSTONE_URL='https://your-keystone-url:5000'
+    $ export VAULT_KEYSTONE_USERNAME=user  # user with keystone/services superpowers
+    $ export VAULT_KEYSTONE_PASSWORD=pass
+    $ export VAULT_KEYSTONE_PROJECT=project  # default project to use with Keystone
+    $ export VAULT_KEYSTONE_ROLE=uuid  # swiftoperator role ID 
+
 
 3) create a mysql database named "vault"
 
@@ -47,7 +61,7 @@ Manage containers and objects on Swift. (A customized version of [django-swiftbr
 =======
 ### Compatibilities
 
-- Django 1.6
+- Django 1.7
 - Swift 2.1.0 (auth v2.0)
 - Keystone 2014.1
 
